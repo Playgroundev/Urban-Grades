@@ -7,11 +7,13 @@ package com.dita.dev.Controller;
 
 import com.dita.dev.View.Grades;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -111,12 +113,28 @@ public class SpecialGrades {
 
         @Override
         public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            if(pageIndex>0){
+                return NO_SUCH_PAGE;
+            }
+            Graphics2D graphics2d = (Graphics2D) graphics;
+            graphics2d.translate(pageFormat.getImageableX(),pageFormat.getImageableY());
+            graphics.drawString("This is a Sample Page", 100, 100);
+            return PAGE_EXISTS;
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            PrinterJob job = PrinterJob.getPrinterJob();
+            job.setPrintable(this);
+            boolean prints = job.printDialog();
+            if(prints){
+                try{
+                    job.print();
+                }catch(PrinterException ex){
+                    ex.printStackTrace();
+                }
+            }
+            
         }
         
     }
@@ -180,6 +198,7 @@ public class SpecialGrades {
         gradesview.getGrade().addActionListener(grades);
         gradesview.addItems().addActionListener(add);
         gradesview.DisableTab().addActionListener(remove);
+        gradesview.getPrinter().addActionListener(printer);
         gradesview.setVisible(true);
         
     }

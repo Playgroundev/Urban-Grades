@@ -65,7 +65,7 @@ public class Grades extends javax.swing.JFrame {
         txtFinalMark = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         txtFinalGrade = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -378,8 +378,8 @@ public class Grades extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jButton2.setText("Print");
+        btnPrint.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        btnPrint.setText("Print");
 
         btnExit.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         btnExit.setText("Exit");
@@ -398,7 +398,7 @@ public class Grades extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -415,7 +415,7 @@ public class Grades extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btnPrint)
                     .addComponent(btnExit))
                 .addGap(4, 4, 4))
         );
@@ -487,6 +487,9 @@ public class Grades extends javax.swing.JFrame {
     public JTextField getFinalGrade(){
         return txtFinalGrade;
     }
+    public JButton getPrinter(){
+        return btnPrint;
+    }
     /**
      * @param args the command line arguments*/
 
@@ -496,8 +499,8 @@ public class Grades extends javax.swing.JFrame {
     private javax.swing.JButton btnDisable;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnGrade;
+    private javax.swing.JButton btnPrint;
     private javax.swing.JSpinner initialWeight;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
