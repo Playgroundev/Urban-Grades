@@ -56,7 +56,7 @@ public class SpecialGrades {
                
                 String admission = gradesview.getAdmission().getText();
                 double initialScore =(double) gradesview.getInitialScore().getValue();
-                double score = (double) gradesview.getScore1().getValue();
+                double score = Double.parseDouble(gradesview.getScore1().getText());
                 double _outOf =(double) gradesview.getOutOf().getValue();
                 int initial_weight = (int) gradesview.getInitialWeight().getValue();
                 double weight = (double) gradesview.getWeighted().getValue();

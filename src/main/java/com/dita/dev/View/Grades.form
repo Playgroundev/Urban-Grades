@@ -173,7 +173,7 @@
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel4" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="txtScore1" min="-2" pref="71" max="-2" attributes="0"/>
+                          <Component id="txtScore1" min="-2" pref="59" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="56" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -193,18 +193,22 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtItem" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtScore1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtOutOf" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtItem" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtOutOf" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="txtScore1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
@@ -251,16 +255,6 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="txtScore1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Ubuntu" size="14" style="1"/>
-                </Property>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel initial="0.0" maximum="100.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JSpinner" name="txtOutOf">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -280,6 +274,8 @@
                   <SpinnerModel initial="0.0" maximum="100.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtScore1">
             </Component>
           </SubComponents>
         </Container>
