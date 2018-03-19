@@ -600,6 +600,9 @@ public class Grades extends javax.swing.JFrame {
     public JTextField getCourseCode(){
         return txtCourseCode;
     }
+    public JTextField getItem3(){
+        return txtItem2;
+    }
     
     /**
      * @param args the command line arguments*/
