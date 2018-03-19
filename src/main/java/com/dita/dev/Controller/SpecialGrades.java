@@ -42,9 +42,10 @@ public class SpecialGrades {
     static GradesHandler grades = new GradesHandler();
     static AddItemsHandler add = new AddItemsHandler();
     static RemoveBarHandler remove = new RemoveBarHandler();
+    static RemoveTabHandler remove2 = new RemoveTabHandler();
     static DecimalFormat decimal = new DecimalFormat(".##");
     static PrinterHandler printer = new PrinterHandler();
-    
+    private static int counter = 0;
    
     
     static class GradesHandler implements ActionListener{
@@ -86,7 +87,16 @@ public class SpecialGrades {
         @Override
         public void actionPerformed(ActionEvent e) {
             try{               
-                    activateTab();                
+                    if(counter == 0){
+                        activateTab();
+                        counter++;
+                    }else if(counter == 1){
+                        activateTab2();
+                        counter++;
+                    }else{
+                        JOptionPane.showMessageDialog(gradesview,"Maximum Number of Items Reached");
+                    }
+                    
             }catch(Exception ex){
                 ex.printStackTrace();
             }            
@@ -102,6 +112,7 @@ public class SpecialGrades {
                 gradesview.getOutOf2().setEnabled(false);
                 gradesview.getWeighted2().setEnabled(false);
                 gradesview.DisableTab().setEnabled(false);
+                counter--;
                 
             }catch(Exception ex){
                 ex.printStackTrace();
@@ -138,6 +149,24 @@ public class SpecialGrades {
         }
         
     }
+    static class RemoveTabHandler implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try{
+                gradesview.getItem3().setEnabled(false);
+                gradesview.getScore3().setEnabled(false);
+                gradesview.getOutOf3().setEnabled(false);
+                gradesview.getWeighted3().setEnabled(false);
+                gradesview.removeTab3().setEnabled(false);
+                counter--;
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
+        
+    }
+    
     
     public static double generateGrade(double score, double limit,double weight){
         double computed=0.0;
@@ -189,6 +218,13 @@ public class SpecialGrades {
         gradesview.getWeighted2().setEnabled(true);
         gradesview.DisableTab().setEnabled(true);   
     }
+    public static void activateTab2(){
+        gradesview.getItem3().setEnabled(true);
+        gradesview.getScore3().setEnabled(true);
+        gradesview.getOutOf3().setEnabled(true);
+        gradesview.getWeighted3().setEnabled(true);
+        gradesview.removeTab3().setEnabled(true);
+    }
   
     
     public static void main(String [] args){
@@ -198,6 +234,7 @@ public class SpecialGrades {
         gradesview.getGrade().addActionListener(grades);
         gradesview.addItems().addActionListener(add);
         gradesview.DisableTab().addActionListener(remove);
+        gradesview.removeTab3().addActionListener(remove2);
         gradesview.getPrinter().addActionListener(printer);
         gradesview.setVisible(true);
         

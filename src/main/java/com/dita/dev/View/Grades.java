@@ -294,7 +294,7 @@ public class Grades extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(txtScore3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txOutOf3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txOutOf3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtWeight3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
@@ -602,6 +602,18 @@ public class Grades extends javax.swing.JFrame {
     }
     public JTextField getItem3(){
         return txtItem2;
+    }
+    public JTextField getScore3(){
+        return txtScore3;
+    }
+    public JTextField getOutOf3(){
+        return txOutOf3;
+    }
+    public JTextField getWeighted3(){
+        return txtWeight3;
+    }
+    public JButton removeTab3(){
+        return btnRemoveTab2;
     }
     
     /**
