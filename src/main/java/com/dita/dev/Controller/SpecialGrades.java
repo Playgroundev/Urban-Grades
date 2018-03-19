@@ -55,18 +55,18 @@ public class SpecialGrades {
             try{
                
                 String admission = gradesview.getAdmission().getText();
-                double initialScore =(double) gradesview.getInitialScore().getValue();
+                double initialScore =Double.parseDouble(gradesview.getInitialScore().getText());
                 double score = Double.parseDouble(gradesview.getScore1().getText());
-                double _outOf =(double) gradesview.getOutOf().getValue();
-                int initial_weight = (int) gradesview.getInitialWeight().getValue();
-                double weight = (double) gradesview.getWeighted().getValue();
+                double _outOf =Double.parseDouble(gradesview.getOutOf().getText());
+                int initial_weight = Integer.parseInt(gradesview.getWeighted().getText());
+                double weight = Double.parseDouble(gradesview.getWeighted().getText());
                 
                 if(admission.isEmpty()){
                     JOptionPane.showMessageDialog(gradesview,"Enter Admission Number To Continue");
                 }
                 if(initialScore>=100.0 || initialScore == 0){
                     JOptionPane.showMessageDialog(gradesview,"Initial Grade Cannot Be Greater Than or Equal to 100 or Equal To 0");
-                    gradesview.getInitialScore().setValue(0);
+                    gradesview.getInitialScore().setText("");
                     return;
                 }else{
                     double _final = ((initialScore/100)*initial_weight) + generateGrade(score,_outOf,weight);
