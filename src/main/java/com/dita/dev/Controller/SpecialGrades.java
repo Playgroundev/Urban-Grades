@@ -77,12 +77,15 @@ public class SpecialGrades {
                     gradesview.getInitialScore().setText("");
                     return;
                 }if(counter == 0){
-                     double _final = ((initialScore/100)*initial_weight) + generateGrade(score,_outOf,weight);
-                     gradesview.getFinalCat().setText(String.valueOf(decimal.format((initialScore/100)*initial_weight)));
-                     gradesview.getFinalExam().setText(String.valueOf(generateGrade(score,_outOf,weight)));
+                     double _final = initialScore + generateGrade(score,_outOf,weight);
+                     gradesview.getFinalCat().setText(gradesview.getInitialScore().getText());
+                     gradesview.showItem1().setText(String.valueOf(decimal.format(generateGrade(score,_outOf,weight))));
                      gradesview.getFinalMark().setText(String.valueOf(decimal.format(_final)));
                      gradesview.getFinalGrade().setText(String.valueOf(generateGradeSymbol(_final)));
                      gradesview.getItem1Label().setText(gradesview.getItemName().getText());
+                     gradesview.displayAdmission().setText(gradesview.getAdmission().getText());
+                     gradesview.displayCourseCode().setText(gradesview.getCourseCode().getText());
+                     
                      System.out.println("Your Final Grade is "+ _final + "Grade is " + generateGradeSymbol(_final));
                      return;
                 }
@@ -91,16 +94,34 @@ public class SpecialGrades {
                     double _weight2 = Double.parseDouble(gradesview.getWeighted2().getText());
                     
                 if(counter == 1){
-                   double  _final2 = initialScore/100 + generateGrade(score,_outOf,weight) + generateGrade(_score2,_outof2,_weight2);
-                    
+                   double  _final2 = (initialScore) + generateGrade(score,_outOf,weight) + generateGrade(_score2,_outof2,_weight2);
+                   gradesview.getItem1Label().setText(gradesview.getItemName().getText());
+                   gradesview.getItem2Label().setText(gradesview.getItem2().getText());
+                   gradesview.getFinalCat().setText(gradesview.getInitialScore().getText());
+                   gradesview.showItem1().setText(decimal.format(generateGrade(score,_outOf,weight)));
+                   gradesview.showItem2().setText(decimal.format(generateGrade(_score2,_outof2,_weight2)));
+                   gradesview.getFinalMark().setText(String.valueOf(decimal.format(_final2)));
+                   gradesview.getFinalGrade().setText(String.valueOf(generateGradeSymbol(_final2)));
+                   gradesview.displayAdmission().setText(gradesview.getAdmission().getText());
+                   gradesview.displayCourseCode().setText(gradesview.getCourseCode().getText());
+                   System.out.println("Score is "+ decimal.format(_final2));
                     return;
                 }
                     double _score3 = Double.parseDouble(gradesview.getScore3().getText());
                     double _outOf3 = Double.parseDouble(gradesview.getOutOf3().getText());
                     double _weight3 = Double.parseDouble(gradesview.getWeighted3().getText());
                 if(counter == 2){
-                      double _final3 = (initialScore/100) + generateGrade(score,_outOf,weight) + generateGrade(_score2,_outof2,_weight2)+
+                      double _final3 = (initialScore) + generateGrade(score,_outOf,weight) + generateGrade(_score2,_outof2,_weight2)+
                             generateGrade(_score3,_outOf3,_weight3);
+                   gradesview.getFinalCat().setText(gradesview.getInitialScore().getText());
+                   gradesview.getItem2Label().setText(gradesview.getItem2().getText());
+                   gradesview.getFinalCat().setText(gradesview.getInitialScore().getText());
+                   gradesview.showItem1().setText(decimal.format(generateGrade(score,_outOf,weight)));
+                   gradesview.showItem2().setText(decimal.format(generateGrade(_score2,_outof2,_weight2)));
+                   gradesview.getFinalMark().setText(String.valueOf(decimal.format(_final3)));
+                   gradesview.getFinalGrade().setText(String.valueOf(generateGradeSymbol(_final3)));
+                   
+
                 }
                 
                 

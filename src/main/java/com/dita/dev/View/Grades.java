@@ -570,8 +570,9 @@ public class Grades extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -695,6 +696,19 @@ public class Grades extends javax.swing.JFrame {
     public JLabel getItem1Label(){
         return lblItem1;
     }
+    public JLabel getItem2Label(){
+        return lblItem2;
+    }
+    public JLabel getItem3Label(){
+        return lblItem3;
+    }
+    public JTextField showItem1(){
+       return txtFinalItem1;
+    }
+    public JTextField showItem2(){
+        return txtFinalItem2;
+    }
+   
     
     /**
      * @param args the command line arguments*/
