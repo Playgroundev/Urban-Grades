@@ -46,6 +46,7 @@ public class SpecialGrades {
     static DecimalFormat decimal = new DecimalFormat(".##");
     static PrinterHandler printer = new PrinterHandler();
     private static int counter = 0;
+    
    
     
     static class GradesHandler implements ActionListener{
@@ -54,29 +55,46 @@ public class SpecialGrades {
         public void actionPerformed(ActionEvent e) {
             
             try{
-               
+                String course_code = gradesview.getCourseCode().getText();
                 String admission = gradesview.getAdmission().getText();
+               
+                if(admission.isEmpty()){
+                    JOptionPane.showMessageDialog(gradesview,"Enter Admission Number To Continue");
+                    return;
+                }
+                if(course_code.isEmpty()){
+                    JOptionPane.showMessageDialog(gradesview,"Enter Course Code");
+                    return;
+                }
                 double initialScore =Double.parseDouble(gradesview.getInitialScore().getText());
                 double score = Double.parseDouble(gradesview.getScore1().getText());
                 double _outOf =Double.parseDouble(gradesview.getOutOf().getText());
                 int initial_weight = Integer.parseInt(gradesview.getWeighted().getText());
                 double weight = Double.parseDouble(gradesview.getWeighted().getText());
                 
-                if(admission.isEmpty()){
-                    JOptionPane.showMessageDialog(gradesview,"Enter Admission Number To Continue");
-                }
-                if(initialScore>=100.0 || initialScore == 0){
-                    JOptionPane.showMessageDialog(gradesview,"Initial Grade Cannot Be Greater Than or Equal to 100 or Equal To 0");
+                if(initialScore>=100.0){
+                    JOptionPane.showMessageDialog(gradesview,"Initial Grade Cannot Be Greater Than 100");
                     gradesview.getInitialScore().setText("");
                     return;
-                }else{
-                    double _final = ((initialScore/100)*initial_weight) + generateGrade(score,_outOf,weight);
-                    gradesview.getFinalCat().setText(String.valueOf(decimal.format((initialScore/100)*initial_weight)));
-                    gradesview.getFinalExam().setText(String.valueOf(generateGrade(score,_outOf,weight)));
-                    gradesview.getFinalMark().setText(String.valueOf(decimal.format(_final)));
-                    gradesview.getFinalGrade().setText(String.valueOf(generateGradeSymbol(_final)));
-                    System.out.println("Your Final Grade is "+ _final + "Grade is " + generateGradeSymbol(_final));
+                }if(counter == 0){
+                     double _final = ((initialScore/100)*initial_weight) + generateGrade(score,_outOf,weight);
+                     gradesview.getFinalCat().setText(String.valueOf(decimal.format((initialScore/100)*initial_weight)));
+                     gradesview.getFinalExam().setText(String.valueOf(generateGrade(score,_outOf,weight)));
+                     gradesview.getFinalMark().setText(String.valueOf(decimal.format(_final)));
+                     gradesview.getFinalGrade().setText(String.valueOf(generateGradeSymbol(_final)));
+                     System.out.println("Your Final Grade is "+ _final + "Grade is " + generateGradeSymbol(_final));
+                     return;
                 }
+                    double _score2 = Double.parseDouble(gradesview.getScore2().getText());
+                    double _outof2 = Double.parseDouble(gradesview.getOutOf2().getText());
+                    double _weight2 = Double.parseDouble(gradesview.getWeighted2().getText());
+                    
+                if(counter == 1){
+                   double  _final2 = initialScore/100 + generateGrade(score,_outOf,weight) + generateGrade(_score2,_outof2,_weight2);
+                    
+                    return;
+                }
+                
                 
             }catch(Exception ex){
                 ex.printStackTrace();
