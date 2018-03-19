@@ -82,6 +82,7 @@ public class SpecialGrades {
                      gradesview.getFinalExam().setText(String.valueOf(generateGrade(score,_outOf,weight)));
                      gradesview.getFinalMark().setText(String.valueOf(decimal.format(_final)));
                      gradesview.getFinalGrade().setText(String.valueOf(generateGradeSymbol(_final)));
+                     gradesview.getItem1Label().setText(gradesview.getItemName().getText());
                      System.out.println("Your Final Grade is "+ _final + "Grade is " + generateGradeSymbol(_final));
                      return;
                 }
@@ -93,6 +94,13 @@ public class SpecialGrades {
                    double  _final2 = initialScore/100 + generateGrade(score,_outOf,weight) + generateGrade(_score2,_outof2,_weight2);
                     
                     return;
+                }
+                    double _score3 = Double.parseDouble(gradesview.getScore3().getText());
+                    double _outOf3 = Double.parseDouble(gradesview.getOutOf3().getText());
+                    double _weight3 = Double.parseDouble(gradesview.getWeighted3().getText());
+                if(counter == 2){
+                      double _final3 = (initialScore/100) + generateGrade(score,_outOf,weight) + generateGrade(_score2,_outof2,_weight2)+
+                            generateGrade(_score3,_outOf3,_weight3);
                 }
                 
                 

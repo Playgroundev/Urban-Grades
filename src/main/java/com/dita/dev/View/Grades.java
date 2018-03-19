@@ -71,15 +71,15 @@ public class Grades extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         txtFinalCat = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
+        lblItem3 = new javax.swing.JLabel();
         txtFinalExam = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         txtFinalMark = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         txtFinalGrade = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
+        lblItem1 = new javax.swing.JLabel();
         txtFinalItem1 = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
+        lblItem2 = new javax.swing.JLabel();
         txtFinalItem2 = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         txtFinalAdmission = new javax.swing.JTextField();
@@ -114,6 +114,12 @@ public class Grades extends javax.swing.JFrame {
         jLabel6.setText("  Weight");
 
         txtItem.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+
+        txtScore1.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+
+        txtOutOf.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+
+        txtWeight.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -427,8 +433,8 @@ public class Grades extends javax.swing.JFrame {
         txtFinalCat.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         txtFinalCat.setEnabled(false);
 
-        jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel13.setText("Item 3");
+        lblItem3.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblItem3.setText("Item 3");
 
         txtFinalExam.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         txtFinalExam.setEnabled(false);
@@ -445,14 +451,14 @@ public class Grades extends javax.swing.JFrame {
         txtFinalGrade.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         txtFinalGrade.setEnabled(false);
 
-        jLabel22.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel22.setText("Item 1");
+        lblItem1.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblItem1.setText("Item 1");
 
         txtFinalItem1.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         txtFinalItem1.setEnabled(false);
 
-        jLabel23.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel23.setText("Item 2");
+        lblItem2.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblItem2.setText("Item 2");
 
         txtFinalItem2.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         txtFinalItem2.setEnabled(false);
@@ -481,7 +487,7 @@ public class Grades extends javax.swing.JFrame {
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
+                                    .addComponent(lblItem3)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -494,8 +500,8 @@ public class Grades extends javax.swing.JFrame {
                         .addComponent(txtFinalGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel23))
+                            .addComponent(lblItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblItem2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtFinalItem1)
@@ -529,19 +535,19 @@ public class Grades extends javax.swing.JFrame {
                     .addComponent(txtFinalAdmission, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
+                    .addComponent(lblItem1)
                     .addComponent(txtFinalItem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25)
                     .addComponent(txtFinalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
+                    .addComponent(lblItem2)
                     .addComponent(txtFinalItem2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtFinalMark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
+                    .addComponent(lblItem3)
                     .addComponent(txtFinalExam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtFinalGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
@@ -686,6 +692,9 @@ public class Grades extends javax.swing.JFrame {
     public JTextField displayCourseCode(){
         return txtFinalCode;
     }
+    public JLabel getItem1Label(){
+        return lblItem1;
+    }
     
     /**
      * @param args the command line arguments*/
@@ -702,7 +711,6 @@ public class Grades extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -712,8 +720,6 @@ public class Grades extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
@@ -726,6 +732,9 @@ public class Grades extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblItem1;
+    private javax.swing.JLabel lblItem2;
+    private javax.swing.JLabel lblItem3;
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panelItems2;
     private javax.swing.JTextField txOutOf3;
