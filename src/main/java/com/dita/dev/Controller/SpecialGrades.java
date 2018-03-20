@@ -114,6 +114,7 @@ public class SpecialGrades {
                       double _final3 = (initialScore) + generateGrade(score,_outOf,weight) + generateGrade(_score2,_outof2,_weight2)+
                             generateGrade(_score3,_outOf3,_weight3);
                    gradesview.getFinalCat().setText(gradesview.getInitialScore().getText());
+                   gradesview.getItem1Label().setText(gradesview.getItemName().getText());
                    gradesview.getItem2Label().setText(gradesview.getItem2().getText());
                    gradesview.getItem3Label().setText(gradesview.getItem3().getText());
                    gradesview.getFinalExam().setText(decimal.format(generateGrade(_score3,_outOf3,_weight3)));
