@@ -5,10 +5,19 @@
  */
 package com.dita.dev.Model;
 
+import java.io.InputStream;
+import java.util.Properties;
+
 /**
  *
  * @author brian-kamau
  */
 public abstract class Base {
-    //Will Define Connections to the database.
+    
+    
+    private static String Username = "";
+    Properties properties = new Properties();
+    InputStream inputStream;
+    
+
 }
