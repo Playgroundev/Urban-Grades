@@ -14,7 +14,14 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Timestamp;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -46,7 +53,20 @@ public class SpecialGrades {
     static DecimalFormat decimal = new DecimalFormat(".##");
     static PrinterHandler printer = new PrinterHandler();
     private static int counter = 0;
+    private static final SimpleDateFormat simple = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
+    private File logFile;
+    private static  BufferedWriter logFileWriter;
     
+    public SpecialGrades() throws IOException{
+        logFile = new File(".log");
+        try{
+            logFileWriter = new BufferedWriter(new FileWriter(logFile));
+            logFileWriter.append("Log Files For Exceptions"+" "+"Created At: "+getTimeStamp());
+            logFileWriter.flush();
+        }catch(FileNotFoundException ex){
+            ex.printStackTrace();
+        }
+    }
    
     
     static class GradesHandler implements ActionListener{
@@ -132,6 +152,11 @@ public class SpecialGrades {
                 
             }catch(Exception ex){
                 ex.printStackTrace();
+                try {
+                    logFileWriter.append("At: "+getTimeStamp()+ " "+ex.getMessage());
+                } catch (IOException ex1) {
+                    Logger.getLogger(SpecialGrades.class.getName()).log(Level.SEVERE, null, ex1);
+                }
             }
         }      
     }
@@ -279,7 +304,8 @@ public class SpecialGrades {
     }
   
     
-    public static void main(String [] args){
+    public static void main(String [] args) throws IOException{
+        SpecialGrades grade = new SpecialGrades();
         gradesview.setLocationRelativeTo(null);
         gradesview.setResizable(false);
         gradesview.setTitle("Special Grades");
@@ -290,5 +316,9 @@ public class SpecialGrades {
         gradesview.getPrinter().addActionListener(printer);
         gradesview.setVisible(true);
         
+    }
+    public static String getTimeStamp(){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        return timestamp.toString();
     }
 }
