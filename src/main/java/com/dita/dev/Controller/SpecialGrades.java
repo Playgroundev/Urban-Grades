@@ -115,11 +115,15 @@ public class SpecialGrades {
                             generateGrade(_score3,_outOf3,_weight3);
                    gradesview.getFinalCat().setText(gradesview.getInitialScore().getText());
                    gradesview.getItem2Label().setText(gradesview.getItem2().getText());
+                   gradesview.getItem3Label().setText(gradesview.getItem3().getText());
+                   gradesview.getFinalExam().setText(decimal.format(generateGrade(_score3,_outOf3,_weight3)));
                    gradesview.getFinalCat().setText(gradesview.getInitialScore().getText());
                    gradesview.showItem1().setText(decimal.format(generateGrade(score,_outOf,weight)));
                    gradesview.showItem2().setText(decimal.format(generateGrade(_score2,_outof2,_weight2)));
                    gradesview.getFinalMark().setText(String.valueOf(decimal.format(_final3)));
                    gradesview.getFinalGrade().setText(String.valueOf(generateGradeSymbol(_final3)));
+                   gradesview.displayAdmission().setText(gradesview.getAdmission().getText());
+                   gradesview.displayCourseCode().setText(gradesview.getCourseCode().getText());
                    
 
                 }
