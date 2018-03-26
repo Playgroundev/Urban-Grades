@@ -242,9 +242,7 @@ public class SpecialGrades {
             }
         }
         
-    }
-    
-    
+    }   
     public static double generateGrade(double score, double limit,double weight){
         double computed=0.0;
         try{
@@ -301,9 +299,7 @@ public class SpecialGrades {
         gradesview.getOutOf3().setEnabled(true);
         gradesview.getWeighted3().setEnabled(true);
         gradesview.removeTab3().setEnabled(true);
-    }
-  
-    
+    }   
     public static void main(String [] args) throws IOException{
         SpecialGrades grade = new SpecialGrades();
         gradesview.setLocationRelativeTo(null);
@@ -314,8 +310,7 @@ public class SpecialGrades {
         gradesview.DisableTab().addActionListener(remove);
         gradesview.removeTab3().addActionListener(remove2);
         gradesview.getPrinter().addActionListener(printer);
-        gradesview.setVisible(true);
-        
+        gradesview.setVisible(true);       
     }
     public static String getTimeStamp(){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
