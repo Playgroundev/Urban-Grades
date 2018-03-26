@@ -26,6 +26,9 @@ public abstract class Base {
     protected PreparedStatement preparedStatement = null;
     public static String Url  = "jdbc:mysql://localhost:3306/dummy?useSSL=false";
     
+    protected Base(){
+        
+    }
  
     public boolean getDatabaseConnection() throws SQLException{
         boolean success = true;

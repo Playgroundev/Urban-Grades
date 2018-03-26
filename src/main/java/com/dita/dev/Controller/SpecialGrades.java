@@ -51,6 +51,7 @@ public class SpecialGrades {
     static RemoveBarHandler remove = new RemoveBarHandler();
     static RemoveTabHandler remove2 = new RemoveTabHandler();
     static DecimalFormat decimal = new DecimalFormat(".##");
+    static clearHandler clear = new clearHandler();
     static PrinterHandler printer = new PrinterHandler();
     private static int counter = 0;
     private static final SimpleDateFormat simple = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
@@ -242,7 +243,58 @@ public class SpecialGrades {
             }
         }
         
-    }   
+    }
+    static class clearHandler implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try{
+                gradesview.getAdmission().setText("");
+                gradesview.getItemName().setText("");
+                gradesview.getOutOf().setText("");
+                gradesview.getScore1().setText("");
+                gradesview.getWeighted().setText("");
+                gradesview.getCourseCode().setText("");
+                gradesview.getInitialScore().setText("");
+                gradesview.getInitialWeight().setText("");             
+                gradesview.getItem2().setText("");
+                gradesview.getScore2().setText("");
+                gradesview.getOutOf2().setText("");
+                gradesview.getWeighted2().setText("");
+                gradesview.getItem3().setText("");
+                gradesview.getScore3().setText("");
+                gradesview.getOutOf3().setText("");
+                gradesview.getWeighted3().setText("");
+                gradesview.getItem3().setEnabled(false);
+                gradesview.getScore3().setEnabled(false);
+                gradesview.getOutOf3().setEnabled(false);
+                gradesview.getWeighted3().setEnabled(false);
+                gradesview.removeTab3().setEnabled(false);
+                gradesview.getItem2().setEnabled(false);
+                gradesview.getScore2().setEnabled(false);
+                gradesview.getOutOf2().setEnabled(false);
+                gradesview.getWeighted2().setEnabled(false);
+                gradesview.DisableTab().setEnabled(false);
+          //      gradesview.getFinalCat().setText(gradesview.getInitialScore().getText());
+                gradesview.getItem1Label().setText("Item 1");
+                gradesview.getItem2Label().setText("Item 2");
+                gradesview.getItem3Label().setText("Item 3");
+                gradesview.displayAdmission().setText("");
+                gradesview.displayCourseCode().setText("");
+                gradesview.getFinalExam().setText("");
+                gradesview.getFinalCat().setText("");
+                gradesview.showItem1().setText("");
+                gradesview.showItem2().setText("");
+                gradesview.getFinalMark().setText("");
+                gradesview.getFinalGrade().setText("");
+                counter =0;
+                
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
+        
+    } 
     public static double generateGrade(double score, double limit,double weight){
         double computed=0.0;
         try{
@@ -310,6 +362,7 @@ public class SpecialGrades {
         gradesview.DisableTab().addActionListener(remove);
         gradesview.removeTab3().addActionListener(remove2);
         gradesview.getPrinter().addActionListener(printer);
+        gradesview.clearFields().addActionListener(clear);
         gradesview.setVisible(true);       
     }
     public static String getTimeStamp(){
