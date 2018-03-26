@@ -1,3 +1,5 @@
+package Unit;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,7 +8,9 @@
 
 import com.dita.dev.Model.Base;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -51,9 +55,17 @@ public class Database {
         result = Implementation.getDatabaseCredentials();
         assertEquals(expectedResult,result);
     }
+    @Test
+    public void testConnection() throws SQLException{
+        System.out.println("Testing Database Connection");
+        Base Implementation = new DatabaseImplementation();
+        boolean result = Implementation.getDatabaseConnection();
+        boolean expectedResult = true;
+        assertEquals(result,expectedResult);
+    }
     
     
     public class DatabaseImplementation extends Base{
-        
+        List<Integer> integers = new ArrayList<>();
     }
 }
