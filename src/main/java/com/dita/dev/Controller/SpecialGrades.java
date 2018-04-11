@@ -29,7 +29,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
- * @author brian-kamau
+ * @author Brian-Kamau
  */
 public class SpecialGrades {
     static{
@@ -249,6 +249,10 @@ public class SpecialGrades {
         @Override
         public void actionPerformed(ActionEvent e) {
             try{
+                if(counter==0){
+                    JOptionPane.showMessageDialog(gradesview,"Tabs Already Cleared");
+                    return;
+                }
                 gradesview.getAdmission().setText("");
                 gradesview.getItemName().setText("");
                 gradesview.getOutOf().setText("");
@@ -368,5 +372,14 @@ public class SpecialGrades {
     public static String getTimeStamp(){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         return timestamp.toString();
+    }
+    public void testActionListener(){
+       ActionListener actionListener = (ActionEvent e) -> {
+           
+           System.out.println("Hello World");
+           
+       };
+       
+       gradesview.clearFields().addActionListener(actionListener);
     }
 }

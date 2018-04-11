@@ -24,9 +24,25 @@ public abstract class Base {
     protected Statement statement = null;
     protected ResultSet result = null;
     protected PreparedStatement preparedStatement = null;
-    public static String Url  = "jdbc:mysql://localhost:3306/dummy?useSSL=false";
+    private String Url  = "jdbc:mysql://localhost:3306/"+getDatabaseCredentials().get(0)+"?useSSL=false";
     
     protected Base(){
+        String sql="";
+                
+        try{
+            getDatabaseConnection();
+            statement = connection.createStatement();
+            sql="CREATE TABLE IF NOT EXISTS Trial("
+                    + "Username Varchar(25) NOT NULL)";
+            statement.addBatch(sql);
+            statement.executeBatch();
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            
+            closeConnection();
+        }
         
     }
  
@@ -42,7 +58,7 @@ public abstract class Base {
         }
         return success;
     }
-    public boolean closeConnection() throws SQLException{
+    public boolean closeConnection(){
        boolean closed = true;
         try{
             if(!connection.isClosed()){
@@ -54,7 +70,7 @@ public abstract class Base {
         return closed;
     }
     
-    public ArrayList<String> getDatabaseCredentials() throws IOException{
+    public  ArrayList<String> getDatabaseCredentials(){
         ArrayList<String> details = new ArrayList<>();
         try{
             File file = new File("database.properties");
