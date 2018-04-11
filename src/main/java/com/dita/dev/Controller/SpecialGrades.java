@@ -5,6 +5,7 @@
  */
 package com.dita.dev.Controller;
 
+import com.dita.dev.Model.Utilities;
 import com.dita.dev.View.Grades;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -57,6 +58,9 @@ public class SpecialGrades {
     private static final SimpleDateFormat simple = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
     private File logFile;
     private static  BufferedWriter logFileWriter;
+    static Utilities gradesmodel = new Utilities();
+      public static String Course_code="",Admission_no="",_final_grade ="";
+      public static  double _initial_score,item_1,final_mark;
     
     public SpecialGrades() throws IOException{
         logFile = new File(".log");
@@ -367,19 +371,49 @@ public class SpecialGrades {
         gradesview.removeTab3().addActionListener(remove2);
         gradesview.getPrinter().addActionListener(printer);
         gradesview.clearFields().addActionListener(clear);
-        gradesview.setVisible(true);       
+        gradesview.setVisible(true);  
+        testActionListener();
+        sendToDatabase();
     }
     public static String getTimeStamp(){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         return timestamp.toString();
     }
-    public void testActionListener(){
+    public static void testActionListener(){
        ActionListener actionListener = (ActionEvent e) -> {
-           
-           System.out.println("Hello World");
+           System.out.println("This is A Trial For using Lamda Expresion");
            
        };
        
        gradesview.clearFields().addActionListener(actionListener);
+    }
+    
+    public static void sendToDatabase(){
+      
+  
+        
+       ActionListener actionListener = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                Course_code = gradesview.displayCourseCode().getText();
+                Admission_no = gradesview.displayAdmission().getText();
+                _final_grade = gradesview.getFinalGrade().getText();
+                _initial_score = Double.parseDouble(gradesview.getInitialScore().getText());
+                item_1 = Double.parseDouble(gradesview.showItem1().getText());
+                final_mark = Double.parseDouble(gradesview.getFinalMark().getText());
+                 if(gradesmodel.addGrades(Course_code, Admission_no, _initial_score,item_1,_final_grade,final_mark)){
+                     JOptionPane.showMessageDialog(gradesview, "Record Successfully saved to Database");
+                 }else{
+                     JOptionPane.showMessageDialog(gradesview,"Error Saving Record, Please Try Again Later");
+                 }
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+           
+       };
+       
+       gradesview.sendToDatabase().addActionListener(actionListener);
     }
 }

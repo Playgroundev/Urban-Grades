@@ -32,8 +32,19 @@ public abstract class Base {
         try{
             getDatabaseConnection();
             statement = connection.createStatement();
-            sql="CREATE TABLE IF NOT EXISTS Trial("
-                    + "Username Varchar(25) NOT NULL)";
+            sql="CREATE TABLE IF NOT EXISTS Grades("
+                    + "id int not null auto_increment,"
+                    + "Token varchar(25) not null,"
+                    + "Course_Code varchar(12) not null,"
+                    + "Admission_No varchar(15) not null,"
+                    + "Initial_Score double not null,"
+                    + "Item_1 double,"
+                    + "Item_2 double,"
+                    + "Item_3 double,"
+                    + "Final_Grade varchar(5) not null,"
+                    + "Final_Mark double not null,"
+                    + "unique(Token),"
+                    + "primary key(id))";
             statement.addBatch(sql);
             statement.executeBatch();
             
