@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package com.dita.dev.Controller;
-
-import com.dita.dev.Model.Utilities;
+import com.dita.dev.Model.Utils;
 import com.dita.dev.View.Grades;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -58,7 +57,8 @@ public class SpecialGrades {
     private static final SimpleDateFormat simple = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
     private File logFile;
     private static  BufferedWriter logFileWriter;
-    static Utilities gradesmodel = new Utilities();
+    static Utils kotmodel = new Utils();
+
       public static String Course_code="",Admission_no="",_final_grade ="";
       public static  double _initial_score,item_1,final_mark;
     
@@ -384,7 +384,7 @@ public class SpecialGrades {
                 _initial_score = Double.parseDouble(gradesview.getInitialScore().getText());
                 item_1 = Double.parseDouble(gradesview.showItem1().getText());
                 final_mark = Double.parseDouble(gradesview.getFinalMark().getText());
-                 if(gradesmodel.addGrades(Course_code, Admission_no, _initial_score,item_1,_final_grade,final_mark)){
+                 if(kotmodel.saveToDatabase(Course_code, Admission_no, _initial_score,item_1,_final_grade,final_mark)){
                      JOptionPane.showMessageDialog(gradesview, "Record Successfully saved to Database");
                  }else{
                      JOptionPane.showMessageDialog(gradesview,"Error Saving Record, Please Try Again Later");

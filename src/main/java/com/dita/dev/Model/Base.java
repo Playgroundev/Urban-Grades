@@ -57,7 +57,7 @@ public abstract class Base {
         
     }
  
-    public boolean getDatabaseConnection() throws SQLException{
+    public boolean getDatabaseConnection(){
         boolean success = true;
         try{
             Class.forName("com.mysql.jdbc.Driver");

@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.dita.dev.Model.Utils;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -62,6 +64,12 @@ public class Database {
         boolean result = Implementation.getDatabaseConnection();
         boolean expectedResult = true;
         assertEquals(result,expectedResult);
+    }
+    @Test
+    public void testKotlinGen(){
+        System.out.println("Testing Password Generator");
+        Utils utils = new Utils();
+        System.out.println(utils.generateToken().substring(0,25));
     }
     
     
