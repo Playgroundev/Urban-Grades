@@ -10,7 +10,7 @@ package com.dita.dev.Controller
   @author brian-kamau
   Created on Apr 13, 2018
 */
-
+/*Starts The Application*/
 
 fun main(args: Array<String>){
     val mainApplication = SpecialGrades()

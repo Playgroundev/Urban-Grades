@@ -71,6 +71,18 @@ public class Database {
         Utils utils = new Utils();
         System.out.println(utils.generateToken().substring(0,25));
     }
+
+    @Test
+    public void testBashExecution(){
+        try{
+            ProcessBuilder processBuilder = new ProcessBuilder("test");
+            Process process = processBuilder.start();
+            process.waitFor();
+            System.out.println("Execution Done ");
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
     
     
     public class DatabaseImplementation extends Base{
