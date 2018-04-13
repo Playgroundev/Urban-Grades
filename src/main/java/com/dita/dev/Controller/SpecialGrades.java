@@ -359,21 +359,6 @@ public class SpecialGrades {
         gradesview.getOutOf3().setEnabled(true);
         gradesview.getWeighted3().setEnabled(true);
         gradesview.removeTab3().setEnabled(true);
-    }   
-    public static void main(String [] args) throws IOException{
-        SpecialGrades grade = new SpecialGrades();
-        gradesview.setLocationRelativeTo(null);
-        gradesview.setResizable(false);
-        gradesview.setTitle("Special Grades");
-        gradesview.getGrade().addActionListener(grades);
-        gradesview.addItems().addActionListener(add);
-        gradesview.DisableTab().addActionListener(remove);
-        gradesview.removeTab3().addActionListener(remove2);
-        gradesview.getPrinter().addActionListener(printer);
-        gradesview.clearFields().addActionListener(clear);
-        gradesview.setVisible(true);  
-        testActionListener();
-        sendToDatabase();
     }
     public static String getTimeStamp(){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -389,9 +374,6 @@ public class SpecialGrades {
     }
     
     public static void sendToDatabase(){
-      
-  
-        
        ActionListener actionListener = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -411,9 +393,25 @@ public class SpecialGrades {
                     ex.printStackTrace();
                 }
             }
-           
+      
        };
        
        gradesview.sendToDatabase().addActionListener(actionListener);
+    }
+    public void startApplication() throws IOException{
+        SpecialGrades grade = new SpecialGrades();
+        gradesview.setLocationRelativeTo(null);
+        gradesview.setResizable(false);
+        gradesview.setTitle("Special Grades");
+        gradesview.getGrade().addActionListener(grades);
+        gradesview.addItems().addActionListener(add);
+        gradesview.DisableTab().addActionListener(remove);
+        gradesview.removeTab3().addActionListener(remove2);
+        gradesview.getPrinter().addActionListener(printer);
+        gradesview.clearFields().addActionListener(clear);
+        gradesview.setVisible(true);
+        testActionListener();
+        sendToDatabase();
+
     }
 }

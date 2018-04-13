@@ -1,3 +1,4 @@
 target/
 /nbproject/
 database.properties
+.idea/
