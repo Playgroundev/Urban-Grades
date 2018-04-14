@@ -69,6 +69,7 @@ public class SpecialGrades {
             logFileWriter.append("Log Files For Exceptions"+" "+"Created At: "+getTimeStamp());
             logFileWriter.flush();
         }catch(FileNotFoundException ex){
+            logFileWriter.append(ex.getMessage());
             ex.printStackTrace();
         }
     }
@@ -156,6 +157,7 @@ public class SpecialGrades {
                 
                 
             }catch(Exception ex){
+
                 ex.printStackTrace();
                 try {
                     logFileWriter.append("At: "+getTimeStamp()+ " "+ex.getMessage());
@@ -378,12 +380,19 @@ public class SpecialGrades {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                Course_code = gradesview.displayCourseCode().getText();
-                Admission_no = gradesview.displayAdmission().getText();
-                _final_grade = gradesview.getFinalGrade().getText();
-                _initial_score = Double.parseDouble(gradesview.getInitialScore().getText());
-                item_1 = Double.parseDouble(gradesview.showItem1().getText());
-                final_mark = Double.parseDouble(gradesview.getFinalMark().getText());
+
+                if(Course_code.isEmpty() || Admission_no.isEmpty() || _final_grade.isEmpty()
+                        || gradesview.showItem1().getText().isEmpty() ||
+                        gradesview.getFinalMark().getText().isEmpty()){
+                    JOptionPane.showMessageDialog(gradesview,"Please Fill In Required Fields");
+                    return;
+                }
+                    Course_code = gradesview.displayCourseCode().getText();
+                    Admission_no = gradesview.displayAdmission().getText();
+                    _final_grade = gradesview.getFinalGrade().getText();
+                    _initial_score = Double.parseDouble(gradesview.getInitialScore().getText());
+                    item_1 = Double.parseDouble(gradesview.showItem1().getText());
+                    final_mark = Double.parseDouble(gradesview.getFinalMark().getText());
                 if(counter ==0){
                     if(kotmodel.saveToDatabase(Course_code, Admission_no, _initial_score,item_1,_final_grade,final_mark)){
                         JOptionPane.showMessageDialog(gradesview, "Record Successfully saved to Database");
@@ -430,6 +439,6 @@ public class SpecialGrades {
         gradesview.setVisible(true);
         testActionListener();
         sendToDatabase();
-
     }
+
 }

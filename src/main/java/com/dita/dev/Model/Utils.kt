@@ -109,6 +109,4 @@ class Utils : Base() {
         }
         return Token.substring(0,24)
     }
-
-
 }
