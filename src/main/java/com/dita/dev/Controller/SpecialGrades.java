@@ -60,7 +60,7 @@ public class SpecialGrades {
     static Utils kotmodel = new Utils();
 
       public static String Course_code="",Admission_no="",_final_grade ="";
-      public static  double _initial_score,item_1,final_mark;
+      public static  double _initial_score,item_1,final_mark,item_2,item_3;
     
     public SpecialGrades() throws IOException{
         logFile = new File(".log");
@@ -384,11 +384,29 @@ public class SpecialGrades {
                 _initial_score = Double.parseDouble(gradesview.getInitialScore().getText());
                 item_1 = Double.parseDouble(gradesview.showItem1().getText());
                 final_mark = Double.parseDouble(gradesview.getFinalMark().getText());
-                 if(kotmodel.saveToDatabase(Course_code, Admission_no, _initial_score,item_1,_final_grade,final_mark)){
-                     JOptionPane.showMessageDialog(gradesview, "Record Successfully saved to Database");
-                 }else{
-                     JOptionPane.showMessageDialog(gradesview,"Error Saving Record, Please Try Again Later");
-                 }
+                if(counter ==0){
+                    if(kotmodel.saveToDatabase(Course_code, Admission_no, _initial_score,item_1,_final_grade,final_mark)){
+                        JOptionPane.showMessageDialog(gradesview, "Record Successfully saved to Database");
+                    }else{
+                        JOptionPane.showMessageDialog(gradesview,"Error Saving Record, Please Try Again Later");
+                    }
+                }else if(counter == 1){
+                    item_2 = Double.parseDouble(gradesview.showItem2().getText());
+                    if(kotmodel.saveToDatabase(Course_code,Admission_no,_initial_score,item_1,item_2,_final_grade,final_mark)){
+                        JOptionPane.showMessageDialog(gradesview,"Record Successfully saved to Database");
+                    }else{
+                        JOptionPane.showMessageDialog(gradesview,"Error Occurred, Please Try Again Later");
+                    }
+                }else if(counter ==2){
+                    item_2 = Double.parseDouble(gradesview.showItem2().getText());
+                    item_3 = Double.parseDouble(gradesview.getFinalMark().getText());
+                    if(kotmodel.saveToDatabase(Course_code,Admission_no,_initial_score,item_1,item_2,item_3,_final_grade,final_mark)){
+                        JOptionPane.showMessageDialog(gradesview,"Record Successfully saved to Database");
+                    }else{
+                        JOptionPane.showMessageDialog(gradesview,"Error Occurred, Please Try Again Later");
+                    }
+                }
+
                 }catch(Exception ex){
                     ex.printStackTrace();
                 }

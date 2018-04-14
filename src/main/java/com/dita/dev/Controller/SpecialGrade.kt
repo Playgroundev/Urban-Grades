@@ -13,6 +13,7 @@ package com.dita.dev.Controller
 /*Starts The Application*/
 
 fun main(args: Array<String>){
+
     val mainApplication = SpecialGrades()
     mainApplication.startApplication()
 }
