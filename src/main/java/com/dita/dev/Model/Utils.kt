@@ -109,4 +109,9 @@ class Utils : Base() {
         }
         return Token.substring(0,24)
     }
+
+    @Throws(SQLException::class)
+    fun checkStudent() :Boolean{
+        return true
+    }
 }
