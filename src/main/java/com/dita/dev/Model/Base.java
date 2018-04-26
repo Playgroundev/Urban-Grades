@@ -5,6 +5,7 @@
  */
 package com.dita.dev.Model;
 
+import javax.swing.*;
 import java.io.File;
 import java.sql.*;
 import java.io.FileInputStream;
@@ -49,6 +50,7 @@ public abstract class Base {
             statement.executeBatch();
             
         }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Check Database Credentials");
             ex.printStackTrace();
         }finally{
             
@@ -91,6 +93,7 @@ public abstract class Base {
             details.add(properties.getProperty("DATABASE_USERNAME"));
             details.add(properties.getProperty("DATABASE_PASSWORD"));
         }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Please Configure Database To Continue");
             ex.printStackTrace();
         }
         return details;
