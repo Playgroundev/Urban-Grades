@@ -48,8 +48,6 @@ public class OrmTests {
         Transaction transaction = null;
         try{
 
-
-
         }catch(HibernateException ex ){
             ex.printStackTrace();
         }finally {
